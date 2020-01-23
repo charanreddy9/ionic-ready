@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <form (ngSubmit)="postinputs(addinputs)" #addinputs="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text"  #username="ngModel" name="username" ngModel required ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  floating>Email</ion-label>
+        <ion-input type="email"   #email="ngModel" name="email" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" type="password"   #password="ngModel" name="password" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Mobile</ion-label>
+        <ion-input type="tel" placeholder="Mobile Number"   #mobile="ngModel" name="mobile" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gaming</ion-label>
+          <ion-select  #games="ngModel" name="games" ngModel required>
+            <ion-option value="nes">NES</ion-option>
+            <ion-option value="n64">Nintendo64</ion-option>
+            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="genesis">Sega Genesis</ion-option>
+            <ion-option value="saturn">Sega Saturn</ion-option>
+            <ion-option value="snes">SNES</ion-option>
+          </ion-select>
+        </ion-item>
+        
+      <!--  <ion-list>
+          <ion-list-header >Intrests</ion-list-header>
+          <ion-item>
+            <ion-label>Cricket</ion-label>
+            <ion-checkbox name="intrests"  checked="false" value="cricket" [(ngModel)]="intrests"  id="intrests" (ionChange)="updateInterests($event)"  ></ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>football</ion-label>
+            <ion-checkbox name="intrests" checked="false" value="football" [(ngModel)]="intrests" id="intrests"  (ionChange)="updateInterests($event)" ></ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>books</ion-label>
+            <ion-checkbox name="intrests"  checked="false" value="books" [(ngModel)]="intrests" id="intrests" (ionChange)="updateInterests($event)"  ></ion-checkbox>
+          </ion-item>
+
+        </ion-list>-->
+        <ion-list radio-group ngModel #gender="ngModel" name="gender" >
+            <ion-list-header style="margin:0; ">Gender</ion-list-header>
+            <ion-item>
+              <ion-label>Male</ion-label>
+              <ion-radio  value="Male" checked ></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>Female</ion-label>
+              <ion-radio  value="Female" ></ion-radio>
+            </ion-item>
+        </ion-list>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime displayFormat="YYYY-MMMM-DD"   #date="ngModel" name="date" ngModel required></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-range [(ngModel)]="singleValue" color="danger" pin="true"   #range="ngModel" name="range" ngModel required></ion-range>
+        </ion-item>
+        <ion-item>
+            <ion-textarea placeholder="Enter a description" #textarea="ngModel" name="textarea" ngModel required></ion-textarea>
+        </ion-item> 
+        <ion-item>
+             <button ion-button (click)="scan()">Scan ... </button>
+              <div *ngIf="scanData">
+                  <p>Scanned Text : </p>
+                  <p>Scanned Format : </p>
+              </div>
+        </ion-item>
+          <ion-item>
+             <button ion-button (click)="finger()">Finger Print ... </button>
+        </ion-item>
+        <ion-list>
+          <ion-item>
+            <ion-input type="number" placeholder="Enter Number" #mynumber="ngModel" name="mynumber" ngModel ></ion-input> 
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Enter Message" #mymessage="ngModel" name="mymessage" ngModel ></ion-input> 
+          </ion-item> 
+             <button ion-button (click)="sendSms()">Send Sms </button>
+        </ion-list>
+        <ion-item> 
+          <button ion-button type="button" (click)="changeprofileimg()" >
+              <ion-icon name="checkmark"></ion-icon>Upload
+          </button>
+        </ion-item>
+        <ion-item>
+          <button ion-button color="danger" (click)="locationAt()" > GetGeo </button>
+        </ion-item>
+         <ion-item>
+          <button ion-button type="button" (click)="captureAudio()" > Capture Audio </button>
+        </ion-item>
+        
+        <ion-item>
+          <button ion-button type="button" (click)="captureVideo()" > Capture Video </button>
+        </ion-item>
+        <ion-item>
+          <button ion-button full medium color="accent" [disabled] = "!addinputs.valid" type="submit">Create</button>
+        </ion-item>
+    </ion-list>
+   </form>
+</ion-content>

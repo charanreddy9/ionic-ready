@@ -1,0 +1,7 @@
+{
+  "name": "curd-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

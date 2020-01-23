@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit User</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<form (ngSubmit)="editUser(editrecord,id)" #editrecord="ngForm" novalidate>
+  <div>
+      <ion-list  >
+        <ion-item>{{id}}
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text"   name="username" id="username" [(ngModel)]="username" required ></ion-input>
+           <ion-input type="text"   name="id" id="id" [(ngModel)]="id" hidden ></ion-input>
+        </ion-item>
+       
+        <ion-item>
+          <ion-label  floating>Email</ion-label>
+          <ion-input type="email"   name="email" id="email" [(ngModel)]="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Mobile</ion-label>
+          <ion-input type="tel" placeholder="Mobile Number"  id="mobile" [(ngModel)]="mobile" name="mobile"  required></ion-input>
+        </ion-item>
+          <ion-item>
+              <button ion-button full medium color="accent" type="submit">Save</button>
+          </ion-item>
+      </ion-list>
+  </div>
+</form>
+</ion-content>

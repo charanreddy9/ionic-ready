@@ -1,0 +1,38 @@
+
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Ionic Blank
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+	<button ion-button full (click)="getSMS()">Get SMS</button>
+ <!--
+	<ion-list>
+		<ion-item *ngFor="let sms of smses">
+			<ion-icon name="star" *ngIf="sms.read==0"></ion-icon>
+			{{sms.address}}
+			<p>{{sms.body}}</p>
+		</ion-item>
+	</ion-list>-->
+	<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"
+           formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="number" class="form-control" id="quantity"
+           formControlName="quantity">
+  </div>
+  <div class="form-group">
+    <input type="submit" class="form-control" value="Submit"
+           [disabled]="myForm?.invalid">
+  </div>
+</form>
+<h6>FormGroup Model (<code>myForm.value</code>)</h6>
+<div><pre><code>{{ myForm?.value.name }}</code></pre></div>
+</ion-content>
